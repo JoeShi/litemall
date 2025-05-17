@@ -9,4 +9,8 @@ public interface StatMapper {
     List<Map> statOrder();
 
     List<Map> statGoods();
+    
+    List<Map> statHotGoods7Days();
+    
+    List<Map> statHotGoods30Days();
 }

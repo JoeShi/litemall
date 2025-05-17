@@ -28,4 +28,42 @@
         from litemall_order_goods
         group by substr(add_time,1, 10)
     </select>
+    <select id="statHotGoods7Days" resultType="map">
+        SELECT 
+            g.id AS goods_id,
+            g.name AS goods_name,
+            SUM(og.number) AS sales_count
+        FROM 
+            litemall_order_goods og
+        JOIN 
+            litemall_goods g ON og.goods_id = g.id
+        WHERE 
+            og.add_time >= DATE_SUB(NOW(), INTERVAL 7 DAY)
+            AND og.deleted = 0
+            AND g.deleted = 0
+        GROUP BY 
+            og.goods_id
+        ORDER BY 
+            sales_count DESC
+        LIMIT 10
+    </select>
+    <select id="statHotGoods30Days" resultType="map">
+        SELECT 
+            g.id AS goods_id,
+            g.name AS goods_name,
+            SUM(og.number) AS sales_count
+        FROM 
+            litemall_order_goods og
+        JOIN 
+            litemall_goods g ON og.goods_id = g.id
+        WHERE 
+            og.add_time >= DATE_SUB(NOW(), INTERVAL 30 DAY)
+            AND og.deleted = 0
+            AND g.deleted = 0
+        GROUP BY 
+            og.goods_id
+        ORDER BY 
+            sales_count DESC
+        LIMIT 10
+    </select>
 </mapper>

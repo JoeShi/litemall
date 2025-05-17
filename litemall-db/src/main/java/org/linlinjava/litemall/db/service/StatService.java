@@ -24,4 +24,12 @@ public class StatService {
     public List<Map> statGoods() {
         return statMapper.statGoods();
     }
+    
+    public List<Map> statHotGoods7Days() {
+        return statMapper.statHotGoods7Days();
+    }
+
+    public List<Map> statHotGoods30Days() {
+        return statMapper.statHotGoods30Days();
+    }
 }
