@@ -23,3 +23,17 @@ export function statGoods(query) {
     params: query
   })
 }
+
+export function statHotGoods7Days() {
+  return request({
+    url: '/stat/hot-goods/7days',
+    method: 'get'
+  })
+}
+
+export function statHotGoods30Days() {
+  return request({
+    url: '/stat/hot-goods/30days',
+    method: 'get'
+  })
+}
